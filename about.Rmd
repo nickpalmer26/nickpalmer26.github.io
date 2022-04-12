@@ -8,5 +8,5 @@ title: "About Me"
 
 Here is a super cool photo.
 
-![](C:/Users/nickp/OneDrive/Pictures/NFT MEMES/selfie.jpg){width=50%}
+![](C:/Users/nickp/OneDrive/Pictures/NFT MEMES/psp.jpg){width=50%}
 
