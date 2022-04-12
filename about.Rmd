@@ -2,4 +2,11 @@
 title: "About Me"
 ---
 
-Why I am awesome.
+- __Name:__ Nick_Palmer
+- __Occupation:__ "Student"
+- __Hobbies:__ Learning data analytics.
+
+Here is a super cool photo.
+
+![](C:/Users/nickp/OneDrive/Pictures/NFT MEMES/selfie.jpg){width=50%}
+
