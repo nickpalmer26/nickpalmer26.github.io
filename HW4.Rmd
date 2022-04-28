@@ -2,6 +2,11 @@
 title: 'HW #4'
 output: html_document
 ---
+library(ggplot2)
+library(gganimate)
+library(dplyr)
+library(tidyverse)
+library(tidyr)
 
 imf_growth_quarterly <- read.csv("C:/Users/nickp/Downloads/imf_growth_quarterly.csv")
 
