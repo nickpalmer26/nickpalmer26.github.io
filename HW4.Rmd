@@ -2,11 +2,13 @@
 title: 'HW #4'
 output: html_document
 ---
+---
 library(ggplot2)
 library(gganimate)
 library(dplyr)
 library(tidyverse)
 library(tidyr)
+---
 
 imf_growth_quarterly <- read.csv("C:/Users/nickp/Downloads/imf_growth_quarterly.csv")
 
@@ -19,8 +21,8 @@ ggplot(data = imf_growth_quarterly, aes(x = reorder(country, -gy), y = gy, fill 
   coord_flip() + 
   geom_tile() + 
   transition_states(qt, transition_length = 1)
-  
-![](C:/Users/nickp/OneDrive/Pictures/Graph1.gif)
+ 
+![](Graph1.gif){width=50%}
   
 #Graph 2
 
@@ -48,6 +50,6 @@ map2 <- map +scale_fill_gradient2(low = "red",
                                   midpoint = 50)
 map2
 
-![](C:/Users/nickp/OneDrive/Pictures/graph2.png)
+![](graph2.png){width=50%}
 
 

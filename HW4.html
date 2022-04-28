@@ -270,12 +270,31 @@ $(document).ready(function () {
 </div>
 
 
+<table>
+<tbody>
+<tr class="odd">
+<td>library(ggplot2)</td>
+</tr>
+<tr class="even">
+<td>library(gganimate)</td>
+</tr>
+<tr class="odd">
+<td>library(dplyr)</td>
+</tr>
+<tr class="even">
+<td>library(tidyverse)</td>
+</tr>
+<tr class="odd">
+<td>library(tidyr)</td>
+</tr>
+</tbody>
+</table>
 <p>imf_growth_quarterly &lt;- read.csv(“C:/Users/nickp/Downloads/imf_growth_quarterly.csv”)</p>
 <div id="gy-growth-rate-of-gdp-per-worker" class="section level1">
 <h1>gy: growth rate of GDP per worker</h1>
 <p>#Graph 1</p>
 <p>ggplot(data = imf_growth_quarterly, aes(x = reorder(country, -gy), y = gy, fill = country, sort(gy, decreasing = T))) + geom_col() + coord_flip() + geom_tile() + transition_states(qt, transition_length = 1)</p>
-<p><img src="C:/Users/nickp/OneDrive/Pictures/Graph1.gif" /></p>
+<p><img src="Graph1.gif" style="width:50.0%" /></p>
 <p>#Graph 2</p>
 <p>climate_opinion_2021 &lt;- read.csv(“C:/Users/nickp/Downloads/climate_opinion_2021.csv”)</p>
 <p>county_map &lt;- county_map</p>
@@ -285,7 +304,7 @@ $(document).ready(function () {
 <p>map = ggplot(climate_opinion, aes(long, lat, fill = perc, group = group, text = GeoName)) + geom_polygon(color = “gray70”, size = 0.05) + coord_equal()</p>
 <p>map</p>
 <p>map2 &lt;- map +scale_fill_gradient2(low = “red”, mid = “white”, high = “blue”, na.value = “grey50”, midpoint = 50) map2</p>
-<p><img src="C:/Users/nickp/OneDrive/Pictures/graph2.png" /></p>
+<p><img src="graph2.png" style="width:50.0%" /></p>
 </div>
 
 
