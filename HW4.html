@@ -270,42 +270,69 @@ $(document).ready(function () {
 </div>
 
 
-<table>
-<tbody>
-<tr class="odd">
-<td>library(ggplot2)</td>
-</tr>
-<tr class="even">
-<td>library(gganimate)</td>
-</tr>
-<tr class="odd">
-<td>library(dplyr)</td>
-</tr>
-<tr class="even">
-<td>library(tidyverse)</td>
-</tr>
-<tr class="odd">
-<td>library(tidyr)</td>
-</tr>
-</tbody>
-</table>
-<p>imf_growth_quarterly &lt;- read.csv(“C:/Users/nickp/Downloads/imf_growth_quarterly.csv”)</p>
-<div id="gy-growth-rate-of-gdp-per-worker" class="section level1">
-<h1>gy: growth rate of GDP per worker</h1>
-<p>#Graph 1</p>
-<p>ggplot(data = imf_growth_quarterly, aes(x = reorder(country, -gy), y = gy, fill = country, sort(gy, decreasing = T))) + geom_col() + coord_flip() + geom_tile() + transition_states(qt, transition_length = 1)</p>
-<p><img src="Graph1.gif" style="width:50.0%" /></p>
-<p>#Graph 2</p>
-<p>climate_opinion_2021 &lt;- read.csv(“C:/Users/nickp/Downloads/climate_opinion_2021.csv”)</p>
-<p>county_map &lt;- county_map</p>
-<p>climate_opinion &lt;- climate_opinion_2021</p>
-<p>climate_opinion &lt;- climate_opinion %&gt;% mutate(id = as.numeric(id)) county_map &lt;- county_map %&gt;% mutate(id = as.numeric(id))</p>
-<p>climate_opinion &lt;- left_join(climate_opinion, county_map, by = ‘id’)</p>
-<p>map = ggplot(climate_opinion, aes(long, lat, fill = perc, group = group, text = GeoName)) + geom_polygon(color = “gray70”, size = 0.05) + coord_equal()</p>
-<p>map</p>
-<p>map2 &lt;- map +scale_fill_gradient2(low = “red”, mid = “white”, high = “blue”, na.value = “grey50”, midpoint = 50) map2</p>
-<p><img src="graph2.png" style="width:50.0%" /></p>
-</div>
+<pre class="r"><code>library(ggplot2)</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 4.1.3</code></pre>
+<pre class="r"><code>library(gganimate)</code></pre>
+<pre><code>## Warning: package &#39;gganimate&#39; was built under R version 4.1.3</code></pre>
+<pre class="r"><code>library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --</code></pre>
+<pre><code>## v tibble  3.1.5     v purrr   0.3.4
+## v tidyr   1.1.4     v stringr 1.4.0
+## v readr   2.0.2     v forcats 0.5.1</code></pre>
+<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(tidyr)
+library(socviz)</code></pre>
+<pre><code>## Warning: package &#39;socviz&#39; was built under R version 4.1.2</code></pre>
+<pre class="r"><code>imf_growth_quarterly &lt;- read.csv(&quot;C:/Users/nickp/Downloads/imf_growth_quarterly.csv&quot;)
+
+# gy: growth rate of GDP per worker
+
+#Graph 1
+
+ggplot(data = imf_growth_quarterly, aes(x = reorder(country, -gy), y = gy, fill = country, sort(gy, decreasing =  T))) +
+  geom_col() + 
+  coord_flip() + 
+  geom_tile() + 
+  transition_states(qt, transition_length = 1)</code></pre>
+<p><img src="HW4_files/figure-html/unnamed-chunk-2-1.gif" /><!-- --></p>
+<pre class="r"><code>#Graph 2
+
+climate_opinion_2021 &lt;- read.csv(&quot;C:/Users/nickp/Downloads/climate_opinion_2021.csv&quot;)
+
+county_map &lt;- county_map
+
+climate_opinion &lt;- climate_opinion_2021
+
+climate_opinion &lt;- climate_opinion %&gt;% mutate(id = as.numeric(id))
+county_map &lt;- county_map %&gt;% mutate(id = as.numeric(id))
+
+climate_opinion &lt;- left_join(climate_opinion, county_map, by = &#39;id&#39;)
+
+map = ggplot(climate_opinion, aes(long, lat, fill = perc, group = group, text = GeoName)) +
+  geom_polygon(color = &quot;gray70&quot;, size = 0.05) +
+  coord_equal()
+
+map</code></pre>
+<p><img src="HW4_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code>map2 &lt;- map +scale_fill_gradient2(low = &quot;red&quot;,
+                                  mid = &quot;white&quot;,
+                                  high = &quot;blue&quot;,
+                                  na.value = &quot;grey50&quot;,
+                                  midpoint = 50)
+map2</code></pre>
+<p><img src="HW4_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
+<p>```</p>
 
 
 

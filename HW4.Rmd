@@ -2,14 +2,16 @@
 title: 'HW #4'
 output: html_document
 ---
----
+```{r}
 library(ggplot2)
 library(gganimate)
 library(dplyr)
 library(tidyverse)
 library(tidyr)
----
+library(socviz)
+```
 
+```{r}
 imf_growth_quarterly <- read.csv("C:/Users/nickp/Downloads/imf_growth_quarterly.csv")
 
 # gy: growth rate of GDP per worker
@@ -21,9 +23,10 @@ ggplot(data = imf_growth_quarterly, aes(x = reorder(country, -gy), y = gy, fill 
   coord_flip() + 
   geom_tile() + 
   transition_states(qt, transition_length = 1)
- 
-![](Graph1.gif){width=50%}
-  
+``` 
+```{r}
+
+   
 #Graph 2
 
 climate_opinion_2021 <- read.csv("C:/Users/nickp/Downloads/climate_opinion_2021.csv")
@@ -49,7 +52,7 @@ map2 <- map +scale_fill_gradient2(low = "red",
                                   na.value = "grey50",
                                   midpoint = 50)
 map2
+```
 
-![](graph2.png){width=50%}
-
+```
 
