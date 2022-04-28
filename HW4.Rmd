@@ -1,0 +1,48 @@
+---
+title: 'HW #4'
+output: html_document
+---
+
+imf_growth_quarterly <- read.csv("C:/Users/nickp/Downloads/imf_growth_quarterly.csv")
+
+# gy: growth rate of GDP per worker
+
+#Graph 1
+
+ggplot(data = imf_growth_quarterly, aes(x = reorder(country, -gy), y = gy, fill = country, sort(gy, decreasing =  T))) +
+  geom_col() + 
+  coord_flip() + 
+  geom_tile() + 
+  transition_states(qt, transition_length = 1)
+  
+![](C:/Users/nickp/OneDrive/Pictures/Graph1.gif)
+  
+#Graph 2
+
+climate_opinion_2021 <- read.csv("C:/Users/nickp/Downloads/climate_opinion_2021.csv")
+
+county_map <- county_map
+
+climate_opinion <- climate_opinion_2021
+
+climate_opinion <- climate_opinion %>% mutate(id = as.numeric(id))
+county_map <- county_map %>% mutate(id = as.numeric(id))
+
+climate_opinion <- left_join(climate_opinion, county_map, by = 'id')
+
+map = ggplot(climate_opinion, aes(long, lat, fill = perc, group = group, text = GeoName)) +
+  geom_polygon(color = "gray70", size = 0.05) +
+  coord_equal()
+
+map
+
+map2 <- map +scale_fill_gradient2(low = "red",
+                                  mid = "white",
+                                  high = "blue",
+                                  na.value = "grey50",
+                                  midpoint = 50)
+map2
+
+![](C:/Users/nickp/OneDrive/Pictures/graph2.png)
+
+
