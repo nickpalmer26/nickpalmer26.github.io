@@ -11,3 +11,5 @@ navbar:
       href: Project_Proposal.html
     - text: "Homework 4"
       href: HW4.html
+    - text: "Resume"
+      href: resume.html
