@@ -91,24 +91,6 @@ Here is my [Resume `r fa("fas fa-file-pdf", fill = "red")`](Nicholas_Palmer_Resu
 
 
 
-
-
-
-<br>
-
-# Current Position
-```{r}
-cv_entries %>% 
-  filter(type == 'current_positions', is.na(exclude)) %>%
-  mutate(what = str_c("<span class='cv-entry-title'>", what, "</span><br>", 
-                      where)) %>% 
-  select(year, what) %>% 
-  kbl(padding = 0, col.names = NULL, escape = FALSE) %>%
-  kable_styling( bootstrap_options = c("hover", "condensed"))  %>% 
-  column_spec(1, width = "15%")
-
-```
-
 <br>
 
 # Education
@@ -129,43 +111,8 @@ cv_entries %>%
 ```
 
 
-<br>
 
-# Teaching
-```{r}
-cv_entries %>% 
-  filter(type == 'teaching') %>% 
-  mutate(what = ifelse(!is.na(additional_info), 
-    str_c("<span class='cv-entry-title'>", what, "</span><br class='work-break'>", where, "<br>", additional_info),
-    str_c("<span class='cv-entry-title'>", what, "</span><br class='work-break'>", where))) %>% 
-  select(year, what) %>% 
-  kbl(padding = 0, col.names = NULL, escape = FALSE) %>%
-  kable_styling( bootstrap_options = c("hover", "condensed"))  %>% 
-  column_spec(1, width = "15%") 
-  
-```
 
-<br>
-
-# Service
-```{r}
-cv_entries %>% 
-  filter(type == 'service') %>% 
-  mutate(where = ifelse(!is.na(url), str_c("[", where, "](", url, ")"), where)) %>% 
-  mutate(what = ifelse(!is.na(additional_info),
-                       str_c("<span class='cv-entry-title'>", what,
-                      "</span><br class='work-break'>", 
-                      where),
-                      str_c("<span class='cv-entry-title'>", what,
-                      "</span><br class='work-break'>", 
-                      where))) %>% 
-  arrange(desc(date_end), desc(date)) %>% 
-  select(year, what) %>% 
-  kbl(padding = 0, col.names = NULL, escape = FALSE) %>%
-  kable_styling( bootstrap_options = c("hover", "condensed")) %>% 
-  column_spec(1, width = "15%")  
-
-```
 
 
 <br>
@@ -198,7 +145,7 @@ cv_entries %>%
 
 <br>
 
-# Hornors & Awards
+# Honors & Awards
 ```{r}
 cv_entries %>% 
   filter(type == 'awards') %>%
@@ -212,63 +159,6 @@ cv_entries %>%
   select(year_begin, what) %>% 
   kbl(padding = 0, col.names = NULL, align = c("l", "l"), escape = FALSE) %>%
   kable_styling( bootstrap_options = c("hover", "condensed"))   %>% 
-  column_spec(1, width = "15%")
-```
- 
-<br>
-
-# Grants and funding
-```{r}
-cv_entries %>% 
-  filter(type == 'minor_grants' | type == 'major_grants',
-         is.na(exclude)) %>%
-  filter(!(website == "n") | is.na(website)) %>% 
-  mutate(what = if_else(
-    !is.na(additional_info),
-    str_c("<span class='cv-entry-title'>", what, "</span>, ", where, "<br>", additional_info),
-    str_c("<span class='cv-entry-title'>", what, "</span>, ", where))
-  ) %>% 
-  blank_year_when_repeated() %>% 
-  select(year, what) %>% 
-  kbl(padding = 0, col.names = NULL, align = c("l", "l"), escape = FALSE)  %>%
-  kable_styling( bootstrap_options = c("hover", "condensed")) %>% 
-  column_spec(1, width = "15%")   
-```
-
-
-
-<br>
-
-# Miscelaneous
-## Computing skills
-```{r}
-cv_entries %>% 
-  filter(type == 'technical') %>% 
-  mutate(icon = case_when(
-    str_detect(what, "data analysis") ~ "fa-bar-chart",
-    str_detect(what, "research") ~ "fa-flask",
-    str_detect(what, "Web") ~ "fa-laptop"
-  )) %>% 
-  mutate(what = str_c("<i class='fa fa-lg ", icon, "'></i> &nbsp;<span class='cv-entry-title'>", what, "</span> ", additional_info)) %>% 
-  select(type, what) %>% 
-  mutate(type = "") %>% 
-  kbl(padding = 0, col.names = NULL, escape=FALSE) %>%
-  kable_styling( bootstrap_options = c("hover", "condensed")) 
-```
-
-<br>
-
-
-## Skills & volunteering
-```{r}
-cv_entries %>%
-  filter(type == 'volunteering') %>%
-  mutate(what = str_c("<span class='cv-entry-title'>", what, "</span><br class='work-break'>", where)) %>%
-  mutate(what = ifelse(!is.na(additional_info), str_c(what, "<br>", additional_info), what)) %>%
-  arrange(desc(date_end)) %>% 
-  select(year, what) %>%
-  kbl(padding = 0, col.names = NULL, escape = FALSE)  %>%
-  kable_styling( bootstrap_options = c("hover", "condensed")) %>% 
   column_spec(1, width = "15%")
 ```
 
