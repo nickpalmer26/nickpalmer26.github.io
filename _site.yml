@@ -13,3 +13,5 @@ navbar:
       href: HW4.html
     - text: "Resume"
       href: resume.html
+    - text: "MyShinyApp"
+      href: https://nickpalmer26.shinyapps.io/MyShinyApp/

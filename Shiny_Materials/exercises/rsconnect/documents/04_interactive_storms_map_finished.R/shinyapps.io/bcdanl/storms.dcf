@@ -1,0 +1,14 @@
+name: storms
+title: storms
+username:
+account: bcdanl
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 6079962
+bundleId: 5797265
+url: https://bcdanl.shinyapps.io/storms/
+when: 1649918670.42656
+lastSyncTime: 1649918670.42658
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: 01_new_shiny_app_finished.R|01_new_shiny_app.R|02_storms_by_year_finished.R|02_storms_by_year.R|03_storms_filtered_finished.R|03_storms_filtered.R|04_interactive_storms_map.R|05_storms_pretty_finished.R|05_storms_pretty.R

@@ -1,0 +1,13 @@
+name: MyShinyApp
+title: MyShinyApp
+username:
+account: nickpalmer26
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 6311488
+bundleId: 5911444
+url: https://nickpalmer26.shinyapps.io/MyShinyApp/
+when: 1652711767.79991
+lastSyncTime: 1652711767.79991
+asMultiple: FALSE
+asStatic: FALSE
