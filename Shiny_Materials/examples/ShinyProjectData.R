@@ -5,7 +5,7 @@ library(tidyverse)
 
 theme_set(theme_minimal())
 
-Danl310FinalData <- read.csv("https://nickpalmer26.github.io/Danl310FinalData.csv")
+Danl310FinalData <- read_csv("https://nickpalmer26.github.io/Danl310FinalData.csv")
 
 ui <- fluidPage(
   
@@ -23,7 +23,7 @@ server <- function(input, output, session) {
     
     
     ggplot(data = filter(Danl310FinalData, City == input$City)) +
-        geom_histogram(aes(x = List.Price), bins = 25) 
+        geom_histogram(aes(x = `List Price`), bins = 25) 
 
   },
   

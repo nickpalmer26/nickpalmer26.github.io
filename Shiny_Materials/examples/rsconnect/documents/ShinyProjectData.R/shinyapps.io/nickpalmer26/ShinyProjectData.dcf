@@ -1,0 +1,14 @@
+name: ShinyProjectData
+title: ShinyProjectData
+username:
+account: nickpalmer26
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 6311625
+bundleId: 5911632
+url: https://nickpalmer26.shinyapps.io/ShinyProjectData/
+when: 1652714061.86681
+lastSyncTime: 1652714061.86681
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: 02_render_output.R|02_render_output_finished.R|03_input_output.R|03_input_output_finished.R|04_htmlwidgets.R|04_htmlwidgets_finished.R|05_layout_appearance.R|05_layout_appearance_finished.R
