@@ -1,0 +1,27 @@
+---
+title: "Final Project"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(tidyverse)
+library(knitr)
+library(here)
+library(lubridate)
+library(kableExtra)
+library(DT)
+library(glue)
+library(readxl)
+library(stringi)
+
+# install.packages("remotes")
+# remotes::install_github("mitchelloharawild/icons")
+# install.packages("fontawesome")
+library(fontawesome)
+
+```
+
+
+
+
+Here is my [Final Project Report `r fa("fas fa-file-pdf", fill = "red")`](Data_Analytics_Final_Paper.pdf).
