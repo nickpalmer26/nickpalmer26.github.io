@@ -15,3 +15,5 @@ navbar:
       href: resume.html
     - text: "ShinyProjectData"
       href: https://nickpalmer26.shinyapps.io/ShinyProjectData/
+    - text: "Final Project"
+      href: FinalProject.html
