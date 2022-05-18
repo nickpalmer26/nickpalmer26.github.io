@@ -259,6 +259,9 @@ $(document).ready(function () {
 <li>
   <a href="https://nickpalmer26.shinyapps.io/ShinyProjectData/">ShinyProjectData</a>
 </li>
+<li>
+  <a href="FinalProject.html">Final Project</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -276,138 +279,7 @@ $(document).ready(function () {
 </div>
 
 
-<pre class="r"><code>library(ggplot2)
-library(gganimate)</code></pre>
-<pre><code>## Warning: package &#39;gganimate&#39; was built under R version 4.1.3</code></pre>
-<pre class="r"><code>library(dplyr)
-library(tidyverse)
-library(tidyr)
-library(socviz)</code></pre>
-<pre><code>## Warning: package &#39;socviz&#39; was built under R version 4.1.2</code></pre>
-<pre class="r"><code>imf_growth_quarterly &lt;- read.csv(&quot;C:/Users/nickp/Downloads/imf_growth_quarterly.csv&quot;)
-
-# gy: growth rate of GDP per worker
-
-#Graph 1
-
-ggplot(data = imf_growth_quarterly, aes(x = reorder(country, -gy), y = gy, fill = country, sort(gy, decreasing =  T))) +
-  geom_col() + 
-  coord_flip() + 
-  geom_tile() + 
-  transition_states(qt, transition_length = 1)</code></pre>
-<pre><code>## 
-Rendering [&gt;-------------------------------------------------------] at 1.2 fps ~ eta:  1m
-Rendering [&gt;-------------------------------------------------------] at 1.1 fps ~ eta:  1m
-Rendering [=&gt;------------------------------------------------------] at 1.1 fps ~ eta:  1m
-Rendering [==&gt;-----------------------------------------------------] at 1.1 fps ~ eta:  1m
-Rendering [==&gt;-------------------------------------------------------] at 1 fps ~ eta:  1m
-Rendering [===&gt;------------------------------------------------------] at 1 fps ~ eta:  1m
-Rendering [===&gt;----------------------------------------------------] at 1.1 fps ~ eta:  1m
-Rendering [====&gt;-----------------------------------------------------] at 1 fps ~ eta:  1m
-Rendering [=====&gt;----------------------------------------------------] at 1 fps ~ eta:  1m
-Rendering [======&gt;---------------------------------------------------] at 1 fps ~ eta:  1m
-Rendering [=======&gt;--------------------------------------------------] at 1 fps ~ eta:  1m
-Rendering [========&gt;-------------------------------------------------] at 1 fps ~ eta:  1m
-Rendering [=========&gt;------------------------------------------------] at 1 fps ~ eta:  1m
-Rendering [==========&gt;-----------------------------------------------] at 1 fps ~ eta:  1m
-Rendering [===========&gt;----------------------------------------------] at 1 fps ~ eta:  1m
-Rendering [============&gt;---------------------------------------------] at 1 fps ~ eta:  1m
-Rendering [=============&gt;--------------------------------------------] at 1 fps ~ eta:  1m
-Rendering [=============&gt;-----------------------------------------] at 0.99 fps ~ eta:  1m
-Rendering [==============&gt;-------------------------------------------] at 1 fps ~ eta:  1m
-Rendering [===============&gt;------------------------------------------] at 1 fps ~ eta:  1m
-Rendering [================&gt;-----------------------------------------] at 1 fps ~ eta:  1m
-Rendering [=================&gt;----------------------------------------] at 1 fps ~ eta:  1m
-Rendering [==================&gt;---------------------------------------] at 1 fps ~ eta:  1m
-Rendering [===================&gt;--------------------------------------] at 1 fps ~ eta:  1m
-Rendering [====================&gt;-------------------------------------] at 1 fps ~ eta:  1m
-Rendering [=====================&gt;------------------------------------] at 1 fps ~ eta:  1m
-Rendering [======================&gt;-----------------------------------] at 1 fps ~ eta:  1m
-Rendering [=======================&gt;----------------------------------] at 1 fps ~ eta:  1m
-Rendering [========================&gt;---------------------------------] at 1 fps ~ eta:  1m
-Rendering [=========================&gt;--------------------------------] at 1 fps ~ eta:  1m
-Rendering [========================&gt;------------------------------] at 0.99 fps ~ eta:  1m
-Rendering [=========================&gt;-----------------------------] at 0.99 fps ~ eta:  1m
-Rendering [==========================&gt;----------------------------] at 0.99 fps ~ eta:  1m
-Rendering [============================&gt;-----------------------------] at 1 fps ~ eta:  1m
-Rendering [=============================&gt;----------------------------] at 1 fps ~ eta: 49s
-Rendering [=============================&gt;----------------------------] at 1 fps ~ eta: 48s
-Rendering [==============================&gt;---------------------------] at 1 fps ~ eta: 47s
-Rendering [==============================&gt;---------------------------] at 1 fps ~ eta: 46s
-Rendering [===============================&gt;--------------------------] at 1 fps ~ eta: 45s
-Rendering [===============================&gt;--------------------------] at 1 fps ~ eta: 44s
-Rendering [================================&gt;-------------------------] at 1 fps ~ eta: 43s
-Rendering [=================================&gt;------------------------] at 1 fps ~ eta: 42s
-Rendering [=================================&gt;------------------------] at 1 fps ~ eta: 41s
-Rendering [==================================&gt;-----------------------] at 1 fps ~ eta: 40s
-Rendering [==================================&gt;-----------------------] at 1 fps ~ eta: 39s
-Rendering [===================================&gt;----------------------] at 1 fps ~ eta: 38s
-Rendering [====================================&gt;---------------------] at 1 fps ~ eta: 37s
-Rendering [==================================&gt;--------------------] at 0.99 fps ~ eta: 36s
-Rendering [===================================&gt;-------------------] at 0.99 fps ~ eta: 35s
-Rendering [===================================&gt;-------------------] at 0.99 fps ~ eta: 34s
-Rendering [====================================&gt;------------------] at 0.99 fps ~ eta: 33s
-Rendering [====================================&gt;------------------] at 0.99 fps ~ eta: 32s
-Rendering [=====================================&gt;-----------------] at 0.99 fps ~ eta: 31s
-Rendering [=====================================&gt;-----------------] at 0.99 fps ~ eta: 30s
-Rendering [======================================&gt;----------------] at 0.99 fps ~ eta: 29s
-Rendering [=======================================&gt;---------------] at 0.99 fps ~ eta: 28s
-Rendering [=======================================&gt;---------------] at 0.99 fps ~ eta: 27s
-Rendering [========================================&gt;--------------] at 0.99 fps ~ eta: 26s
-Rendering [========================================&gt;--------------] at 0.99 fps ~ eta: 25s
-Rendering [=========================================&gt;-------------] at 0.99 fps ~ eta: 24s
-Rendering [=========================================&gt;-------------] at 0.99 fps ~ eta: 23s
-Rendering [==========================================&gt;------------] at 0.99 fps ~ eta: 22s
-Rendering [==========================================&gt;------------] at 0.99 fps ~ eta: 21s
-Rendering [===========================================&gt;-----------] at 0.99 fps ~ eta: 20s
-Rendering [============================================&gt;----------] at 0.99 fps ~ eta: 19s
-Rendering [============================================&gt;----------] at 0.99 fps ~ eta: 18s
-Rendering [=============================================&gt;---------] at 0.99 fps ~ eta: 17s
-Rendering [=============================================&gt;---------] at 0.99 fps ~ eta: 16s
-Rendering [==============================================&gt;--------] at 0.99 fps ~ eta: 15s
-Rendering [==============================================&gt;--------] at 0.99 fps ~ eta: 14s
-Rendering [===============================================&gt;-------] at 0.99 fps ~ eta: 13s
-Rendering [===============================================&gt;-------] at 0.99 fps ~ eta: 12s
-Rendering [================================================&gt;------] at 0.99 fps ~ eta: 11s
-Rendering [=================================================&gt;-----] at 0.99 fps ~ eta: 10s
-Rendering [=================================================&gt;-----] at 0.99 fps ~ eta:  9s
-Rendering [==================================================&gt;----] at 0.99 fps ~ eta:  8s
-Rendering [==================================================&gt;----] at 0.99 fps ~ eta:  7s
-Rendering [===================================================&gt;---] at 0.99 fps ~ eta:  6s
-Rendering [===================================================&gt;---] at 0.99 fps ~ eta:  5s
-Rendering [====================================================&gt;--] at 0.99 fps ~ eta:  4s
-Rendering [====================================================&gt;--] at 0.99 fps ~ eta:  3s
-Rendering [=====================================================&gt;-] at 0.99 fps ~ eta:  2s
-Rendering [=====================================================&gt;-] at 0.99 fps ~ eta:  1s
-Rendering [=======================================================] at 0.99 fps ~ eta:  0s
-                                                                                          </code></pre>
-<p><img src="HW4_files/figure-html/unnamed-chunk-2-1.gif" /><!-- --></p>
-<pre class="r"><code>#Graph 2
-
-climate_opinion_2021 &lt;- read.csv(&quot;C:/Users/nickp/Downloads/climate_opinion_2021.csv&quot;)
-
-county_map &lt;- county_map
-
-climate_opinion &lt;- climate_opinion_2021
-
-climate_opinion &lt;- climate_opinion %&gt;% mutate(id = as.numeric(id))
-county_map &lt;- county_map %&gt;% mutate(id = as.numeric(id))
-
-climate_opinion &lt;- left_join(climate_opinion, county_map, by = &#39;id&#39;)
-
-map = ggplot(climate_opinion, aes(long, lat, fill = perc, group = group, text = GeoName)) +
-  geom_polygon(color = &quot;gray70&quot;, size = 0.05) +
-  coord_equal()
-
-map</code></pre>
-<p><img src="HW4_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<pre class="r"><code>map2 &lt;- map +scale_fill_gradient2(low = &quot;red&quot;,
-                                  mid = &quot;white&quot;,
-                                  high = &quot;blue&quot;,
-                                  na.value = &quot;grey50&quot;,
-                                  midpoint = 50)
-map2</code></pre>
-<p><img src="HW4_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
+<p><img src="HW4_files/figure-html/unnamed-chunk-2-1.gif" /><!-- --> <img src="HW4_files/figure-html/unnamed-chunk-3-1.png" width="672" /><img src="HW4_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
 <p>```</p>
 
 
