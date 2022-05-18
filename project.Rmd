@@ -31,8 +31,7 @@ library(stringi)
 library(fontawesome)
 ```
 
-# PDF of Final Paper
-
+#PDF of Final Paper
 Here is my [Final Project Report `r fa("fas fa-file-pdf", fill = "red")`](Data_Analytics_Final_Paper.pdf).
 
 # Introduction
@@ -50,7 +49,7 @@ Part of the reason why we decided to do this project on real estate data is beca
 
 <br>
 
-# Description of Data
+#Description of Data
 
 
 The data we compiled for this project was done so using the website Zillow.com. Zillow is a real time data source that has homes for sale all across the globe. Part of the reason why we used Zillow to compile our data was because it was up to date, accurate, and allowed us to filter by region with ease. We have 20+ data entries from 8 different cities along the east coast, including the states New York, Florida, Massachusetts. And Pennsylvania. Throughout these data entries we compiled information on 16 different variables. The variables are the following: List Price, CIty, State, Address, Zip Code, Total Bedrooms, Total Bathrooms, Square Footage of Home, Lot Size, Total Parking Spots, Year Build, Price/Square Foot,  and Property Tax. After collecting our data, we needed to make sure it was cleaned in order for the models to run without any errors in R Studio. In order to do this we utilized packages such as tidyverse and dplyr to get rid of blank entries and get rid of any outliers that may have a negative impact on our models. You can see a basic summary statistic of the compiled data in figure 1 below.
@@ -67,7 +66,7 @@ We can see that the majority of the houses collected in our dataset have an aver
 
 <br>
 
-# Building Our Models
+#Building Our Models
 
 For this project we decided to use linear regression models in order to analyze and visualize our data. The reason we used linear regression models is because we want to see the relationship between the different features of a home and its list price. All together we created four linear regression models, and built many graphs that help us visualize trends using the ggplot2 package in R Studio.
 
@@ -75,7 +74,7 @@ For this project we decided to use linear regression models in order to analyze 
 
 <br>
 
-# Model 1
+#Model 1
 
 The first model we build using this data predicts the relationship between the list price of a home given by the total number of square feet it is. Below in figure 2 we can see the summary statistics of this model.
 
@@ -146,7 +145,7 @@ Clearly there is a wide variety of slopes depending on the location. This has a 
 
 <br>
 
-# Model 4
+#Model 4
 
 Prior to our research, we hypothesized that property taxes were going to have the highest correlation with listing price. The thought process behind this was because the property taxes are driven from each feature present in a home and we thought that it was a culmination of all the features we studied. Obviously, when it comes to tax rates, the more features you pile onto a home the more you're going to have to pay in property taxes. We also hypothesized that if you can afford high property taxes, you most likely will be willing to pay more for each feature added on and that's why we believed that this would have the highest correlation. Our results are as follows. 
 
@@ -172,7 +171,6 @@ Figure 9:
 Clearly in this figure there are different relationships depending on each region. New York has a large ranked slope that is very correlated and it is clear in the model. New York also has the highest level of taxes, so it wasn't surprising to see this in our figure. In this figure, it is clear that New York has the tax rates that exceed the comparing states. This is interesting because the rest of the states seemed to be clumped on the left, therefore the states are taxing their residents similarly. It was interesting to study the models and recognize the distinct differences between each region. 
 
 <br>
-
 # Conclusion
 We were happy with the results we found from our four models and it was made easy because of our relevant research topic. We were easily able to compile the data and we were able to study many different features because of Zillow.com. This research topic taught us a lot about developing models using R Studio and being able to understand/portray our results. We believe that we chose the topic that could best help the class in the future and our results were easy to understand and showed clear distinctions based on region. Professor, we appreciate all of your help throughout the past two semesters and can look back on our past two classes with nothing but good memories. 
 
